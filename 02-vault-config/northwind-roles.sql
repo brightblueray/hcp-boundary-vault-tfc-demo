@@ -20,7 +20,7 @@ begin;
 -- alter user vault password 'vault-password';
 -- alter role vault with superuser;
 
-  -- Vault
-  create role vault with superuser login createrole password 'vault-password';
+  -- -- Vault
+  -- create role vault with superuser login createrole password 'vault-password';
 commit;
 
