@@ -114,7 +114,8 @@ resource "aws_db_instance" "northwind" {
 ## VAULT
 ##
 
-data "terraform_remote_state" "vault_addr" {
+# Data Source from Config Workspace
+data "terraform_remote_state" "hcp-demo-config" {
   backend = "remote"
 
   config = {
@@ -125,8 +126,11 @@ data "terraform_remote_state" "vault_addr" {
   }
 }
 
+
+
+
 provider "vault" {
-  address = data.terraform_remote_state.vault_addr.outputs.vault_addr
+  address = data.terraform_remote_state.hcp-demo-config.outputs.vault_addr
   namespace = "admin"
 }
 
@@ -189,12 +193,12 @@ resource "vault_token" "boundary" {
 ## Boundary
 ##
 
-# provider "boundary" {
-#   addr                            = var.boundary_addr
-#   auth_method_id                  = "ampw_vLmPiuaqdK"
-#   password_auth_method_login_name = var.boundary_user
-#   password_auth_method_password   = var.boundary_pw
-# }
+provider "boundary" {
+  addr                            = 
+  auth_method_id                  = "ampw_vLmPiuaqdK"
+  password_auth_method_login_name = var.boundary_user
+  password_auth_method_password   = var.boundary_pw
+}
 
 # resource "boundary_scope" "db-org" {
 #   name = "db-org"
