@@ -24,13 +24,17 @@ output "rds_username" {
   sensitive   = false
 }
 
-# output "vault_addr" {
-#   description = "Vault Instance Address"
-#   value       = var.vault_addr
-# }
+output "vault_addr" {
+  description = "Vault Instance Address"
+  value       = data.terraform_remote_state.hcp-demo-config.outputs.vault_addr
+}
 
-# output "boundary_token" {
-#   description = "Boundary Token"
-#   value       = vault_token.boundary.client_token
-#   sensitive   = true
-# }
+output "boundary_addr" {
+  value = data.terraform_remote_state.hcp-demo-config.outputs.boundary_addr
+}
+
+output "boundary_auth_id" {
+  description = "Boundary Auth Method Id"
+  value       = local.boundary_auth_id
+  sensitive   = false
+}

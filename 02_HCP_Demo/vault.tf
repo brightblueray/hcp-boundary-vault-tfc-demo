@@ -5,7 +5,7 @@
 provider "vault" {
   address = data.terraform_remote_state.hcp-demo-config.outputs.vault_addr
   namespace = "admin"
-  token = data.terraform_remote_state.hcp-demo-config.outputs.vault_token
+  # token = data.terraform_remote_state.hcp-demo-config.outputs.vault_token
 }
 
 # Vault Boundary Controller Policy
