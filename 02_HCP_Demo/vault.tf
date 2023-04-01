@@ -53,11 +53,3 @@ resource "vault_database_secret_backend_role" "analyst_role" {
   max_ttl             = 3600
 }
 
-# Vault Token for Boudary
-resource "vault_token" "boundary" {
-  no_default_policy = true
-  policies          = ["${vault_policy.boundary-controller.name}", "${vault_policy.database-northwind.name}"]
-  no_parent         = true
-  period            = "20m"
-  renewable         = true
-}
