@@ -109,6 +109,4 @@ resource "boundary_credential_library_vault" "analyst" {
   path = "database/creds/analyst"
 }
 
-# psql -h 127.0.0.1 -p 53308 -U v-token-to-analyst-PZyfIfSKozHxmtC47AXt-1680388628 -d northwind
-# psql -h 127.0.0.1 -p 53308 -U $dbuser -d northwind
 

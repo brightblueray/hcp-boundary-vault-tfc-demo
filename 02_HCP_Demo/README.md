@@ -21,3 +21,27 @@ https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios.html
 - Configure the postgres database plugin
 - Create a database admin role to generate credentials
 - Create an analyst role to generate credentials
+
+
+# Demo
+
+- Set environment vars
+export BOUNDARY_AUTH_METHOD_ID=ampw_wnuoth3dgh 
+export BOUNDARY_ADDR=https://da193632-6017-4be7-ab6d-9598d83e9f88.boundary.hashicorp.cloud 
+
+- login via CLI
+boundary authenticate password -auth-method-id=$BOUNDARY_AUTH_METHOD_ID -login-name=rryjewski
+
+- Analyst Session
+boundary connect postgres -target-id ttcp_xkYI5rDUli -dbname northwind
+
+- Kill Analyst Session from Admin GUI
+
+- Finally Rotate Root Credentials
+  - Vault UI Secrets -> Database -> Connections -> Edit Configuration
+psql -h terraform-20230403005648174000000004.cne04tub3qaw.us-east-2.rds.amazonaws.com -p 5432 -U postgres -d northwind
+pwd: foobarbaz
+
+
+# psql -h 127.0.0.1 -p 53308 -U v-token-to-analyst-PZyfIfSKozHxmtC47AXt-1680388628 -d northwind
+# 
