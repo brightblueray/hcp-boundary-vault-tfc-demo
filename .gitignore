@@ -29,3 +29,4 @@ override.tf.json
 # example: *tfplan*
 01_HCP_Config/.terraform.lock.hcl
 02_HCP_Demo/.terraform.lock.hcl
+.DS_Store
