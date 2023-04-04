@@ -43,10 +43,10 @@ module "hcp_demo" {
 
 
 ## Outputs
-output "vault_token" {
-  value = module.hcp_demo.vault_token
-  sensitive = true
-}
+# output "vault_token" {
+#   value = module.hcp_demo.vault_token
+#   sensitive = true
+# }
 
 output "vault_addr" {
   value = module.hcp_demo.vault_addr

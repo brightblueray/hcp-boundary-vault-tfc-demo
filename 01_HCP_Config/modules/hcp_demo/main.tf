@@ -35,10 +35,10 @@ resource "hcp_vault_cluster" "demo-vault" {
   public_endpoint   = true
 }
 
-# Get an Admin Token
-resource "hcp_vault_cluster_admin_token" "demo-token" {
-  cluster_id = hcp_vault_cluster.demo-vault.cluster_id
-}
+# # Get an Admin Token
+# resource "hcp_vault_cluster_admin_token" "demo-token" {
+#   cluster_id = hcp_vault_cluster.demo-vault.cluster_id
+# }
 
 # Outputs
 output "vault_addr" {
@@ -46,10 +46,10 @@ output "vault_addr" {
   value       = hcp_vault_cluster.demo-vault.vault_public_endpoint_url
 }
 
-output "vault_token" {
-  value = hcp_vault_cluster_admin_token.demo-token.token
-  sensitive = true
-}
+# output "vault_token" {
+#   value = hcp_vault_cluster_admin_token.demo-token.token
+#   sensitive = true
+# }
 
 
 
